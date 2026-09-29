@@ -2,8 +2,11 @@ name: Build Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+    paths:
+      - 'deerwood-lazy-video-divi.php'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,23 +16,59 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read plugin version
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(sed -n 's/^ \* Version: *//p' deerwood-lazy-video-divi.php | head -n 1 | tr -d '\r')
+          if [ -z "$VERSION" ]; then
+            echo "Could not read plugin version."
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether release already exists
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+        shell: bash
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build plugin ZIP
+        if: steps.existing.outputs.exists == 'false'
         run: |
           mkdir -p build/deerwood-lazy-video-divi
           rsync -av --exclude='.git*' --exclude='build' --exclude='README.md' ./ build/deerwood-lazy-video-divi/
           cd build
           zip -r deerwood-lazy-video-divi.zip deerwood-lazy-video-divi
 
-      - name: Create or update GitHub Release
+      - name: Create tag and GitHub Release
+        if: steps.existing.outputs.exists == 'false'
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          VERSION: ${{ steps.version.outputs.version }}
+        shell: bash
         run: |
-          if gh release view "${{ github.ref_name }}" >/dev/null 2>&1; then
-            gh release upload "${{ github.ref_name }}" build/deerwood-lazy-video-divi.zip --clobber
-          else
-            gh release create "${{ github.ref_name }}" \
-              build/deerwood-lazy-video-divi.zip \
-              --title "Deerwood Lazy Video for Divi ${{ github.ref_name }}" \
-              --generate-notes
-          fi
+          git tag "$TAG" "${{ github.sha }}"
+          git push origin "$TAG"
+          gh release create "$TAG" \
+            build/deerwood-lazy-video-divi.zip \
+            --title "Deerwood Lazy Video for Divi $VERSION" \
+            --generate-notes
+
+      - name: No release needed
+        if: steps.existing.outputs.exists == 'true'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: echo "$TAG already has a GitHub release; nothing to do."
