@@ -3,7 +3,7 @@ Contributors: deerwoodmedia
 Tags: divi, youtube, performance, lazy load, video
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 
 A lightweight Divi 4 custom module that delays the YouTube iframe until the visitor clicks Play.
 
@@ -22,6 +22,11 @@ Version 1.0 targets Divi 4's ET_Builder_Module API. Divi 5 has a separate native
 
 
 == Changelog ==
+
+= 1.2.0 =
+* Added Thumbnail Loading control.
+* Priority / Above Fold is now the default and uses eager loading with high fetch priority to improve LCP.
+* Lazy / Below Fold remains available for videos farther down the page.
 
 = 1.1.1 =
 * Added the required Divi 4 React Visual Builder component.
