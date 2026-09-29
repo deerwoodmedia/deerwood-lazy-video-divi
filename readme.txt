@@ -3,7 +3,7 @@ Contributors: deerwoodmedia
 Tags: divi, youtube, performance, lazy load, video
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.1
 
 A lightweight Divi 4 custom module that delays the YouTube iframe until the visitor clicks Play.
 
@@ -19,3 +19,14 @@ With a custom thumbnail, the module makes no YouTube request before the visitor 
 
 == Notes ==
 Version 1.0 targets Divi 4's ET_Builder_Module API. Divi 5 has a separate native module API and should receive a dedicated compatibility build rather than relying on backward compatibility mode.
+
+
+== Changelog ==
+
+= 1.1.1 =
+* Added the required Divi 4 React Visual Builder component.
+* Fixed raw JavaScript/function output appearing in the Visual Builder.
+* Video thumbnail and play button now render as a non-playing preview while editing.
+
+= 1.0.0 =
+* Initial release.
