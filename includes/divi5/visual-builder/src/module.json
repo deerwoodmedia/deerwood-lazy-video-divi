@@ -50,8 +50,8 @@
             "priority": 10,
             "render": true,
             "attrName": "youtubeUrl.innerContent",
-            "label": "YouTube URL or Video ID",
-            "description": "Paste a YouTube URL or 11-character video ID.",
+            "label": "Video URL or ID",
+            "description": "Paste a YouTube or Vimeo URL, or the video ID.",
             "features": {
               "dynamicContent": false
             },
@@ -74,7 +74,7 @@
             "render": true,
             "attrName": "thumbnail.innerContent",
             "label": "Custom Thumbnail",
-            "description": "Optional. Use a local image for zero YouTube requests before play.",
+            "description": "Recommended for Vimeo. YouTube can use an automatic thumbnail; Vimeo uses a custom thumbnail so no Vimeo request is needed before play.",
             "component": {
               "type": "field",
               "name": "divi/upload"
@@ -165,12 +165,13 @@
             "priority": 40,
             "render": true,
             "attrName": "privacyMode.innerContent",
-            "label": "Privacy-Enhanced Mode",
+            "label": "YouTube Privacy-Enhanced Mode",
             "component": {
               "type": "field",
               "name": "divi/toggle"
             },
-            "groupName": "mainContent"
+            "groupName": "mainContent",
+            "description": "Applies to YouTube only."
           }
         }
       }
@@ -329,6 +330,45 @@
               }
             },
             "groupName": "designPlayButton"
+          }
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "youtube"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "priority": 5,
+            "render": true,
+            "attrName": "provider.innerContent",
+            "label": "Video Provider",
+            "description": "Choose YouTube or Vimeo.",
+            "component": {
+              "type": "field",
+              "name": "divi/select",
+              "props": {
+                "options": {
+                  "youtube": {
+                    "label": "YouTube",
+                    "value": "youtube"
+                  },
+                  "vimeo": {
+                    "label": "Vimeo",
+                    "value": "vimeo"
+                  }
+                }
+              }
+            },
+            "groupName": "mainContent"
           }
         }
       }
