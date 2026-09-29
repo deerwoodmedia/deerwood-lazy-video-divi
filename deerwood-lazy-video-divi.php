@@ -2,7 +2,8 @@
 /**
  * Plugin Name: Deerwood Lazy Video for Divi
  * Description: Lightweight click-to-load YouTube module for Divi 4 and Divi 5. Loads the YouTube player only after Play is clicked.
- * Version: 1.3.6
+ * Version: 1.3.7
+ * Update URI: https://github.com/deerwoodmedia/deerwood-lazy-video-divi
  * Author: Deerwood Media
  * Author URI: https://deerwoodmedia.com/
  * License: GPL-2.0-or-later
@@ -12,7 +13,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'DLVD_VERSION', '1.3.6' );
+define( 'DLVD_VERSION', '1.3.7' );
 define( 'DLVD_FILE', __FILE__ );
 define( 'DLVD_URL', plugin_dir_url( __FILE__ ) );
 define( 'DLVD_PATH', plugin_dir_path( __FILE__ ) );
@@ -108,25 +109,26 @@ function dlvd_update_package( $release ) {
     return '';
 }
 
-function dlvd_check_for_update( $transient ) {
-    if ( empty( $transient->checked ) ) { return $transient; }
+function dlvd_github_update( $update, $plugin_data, $plugin_file, $locales ) {
+    if ( plugin_basename( DLVD_FILE ) !== $plugin_file ) { return $update; }
+
     $release = dlvd_github_release();
     $version = isset( $release['tag_name'] ) ? ltrim( $release['tag_name'], 'vV' ) : '';
     $package = dlvd_update_package( $release );
 
-    if ( $version && $package && version_compare( DLVD_VERSION, $version, '<' ) ) {
-        $plugin = plugin_basename( DLVD_FILE );
-        $transient->response[ $plugin ] = (object) array(
-            'slug' => 'deerwood-lazy-video-divi',
-            'plugin' => $plugin,
-            'new_version' => $version,
-            'url' => 'https://github.com/deerwoodmedia/deerwood-lazy-video-divi',
-            'package' => $package,
-        );
+    if ( ! $version || ! $package || ! version_compare( DLVD_VERSION, $version, '<' ) ) {
+        return false;
     }
-    return $transient;
+
+    return array(
+        'slug' => 'deerwood-lazy-video-divi',
+        'version' => $version,
+        'url' => 'https://github.com/deerwoodmedia/deerwood-lazy-video-divi',
+        'package' => $package,
+        'requires_php' => '7.4',
+    );
 }
-add_filter( 'pre_set_site_transient_update_plugins', 'dlvd_check_for_update' );
+add_filter( 'update_plugins_github.com', 'dlvd_github_update', 10, 4 );
 
 function dlvd_plugin_info( $result, $action, $args ) {
     if ( 'plugin_information' !== $action || empty( $args->slug ) || 'deerwood-lazy-video-divi' !== $args->slug ) { return $result; }
