@@ -1,54 +1,111 @@
-# Deerwood Lazy Video Divi Module
+# Deerwood Lazy Video for Divi
 
-A lightweight **Divi 4** module from Deerwood Media for embedding YouTube videos without loading the full YouTube player during the initial page load.
+A free, lightweight **YouTube and Vimeo video module for Divi 4 and native Divi 5**, developed by Deerwood Media.
 
-The standard video embed approach can trigger a large number of third-party requests and JavaScript from YouTube and related Google services. Deerwood Lazy Video replaces that initial iframe with a lightweight thumbnail and play button. The YouTube iframe is only created after the visitor clicks Play.
+Traditional video embeds can load third-party player resources before a visitor ever watches the video. Deerwood Lazy Video replaces the initial player with a lightweight thumbnail and play button. The YouTube or Vimeo iframe is only created after the visitor clicks Play.
 
 ## What it does
 
 - Adds a **Deerwood Lazy Video** module to the Divi Builder.
-- Accepts a normal YouTube URL or an 11-character YouTube video ID.
-- Supports a custom thumbnail from the WordPress Media Library.
-- Falls back to YouTube's `maxresdefault.jpg` thumbnail when no custom image is selected.
-- Uses `youtube-nocookie.com` by default for privacy-enhanced playback.
+- Supports **Divi 4 and native Divi 5** in one installer.
+- Lets you choose **YouTube or Vimeo** as the video provider.
+- Accepts standard YouTube URLs, YouTube video IDs, Vimeo URLs, or numeric Vimeo video IDs.
+- Supports custom/local thumbnails from the WordPress Media Library.
+- Automatically uses YouTube's `maxresdefault.jpg` thumbnail when no custom YouTube thumbnail is selected.
+- Uses a custom/local thumbnail for Vimeo so Vimeo does not need to be contacted before Play is clicked.
+- Uses `youtube-nocookie.com` by default for YouTube privacy-enhanced playback.
 - Can autoplay the video after the visitor clicks Play.
 - Supports 16:9, 4:3, 1:1, and 9:16 aspect ratios.
-- Includes controls for the play button colour, icon colour, and size.
+- Includes **Priority / Above Fold** and **Lazy / Below Fold** thumbnail loading.
+- Includes controls for play button colour, icon colour, and size.
 - Reserves the video aspect ratio before playback to help reduce layout shift.
-- Uses one small CSS file and one small vanilla JavaScript file shared by all module instances on the page.
+- Uses a small CSS file and vanilla JavaScript frontend loader shared by module instances.
 
 ## Why use it?
 
-A normal YouTube iframe can load player JavaScript, CSS, thumbnails, advertising-related resources, and other third-party requests before the visitor ever watches the video.
+A normal YouTube or Vimeo embed can load third-party player resources before the visitor ever watches the video.
 
-With this module, the initial page contains only the thumbnail and play button. The actual YouTube iframe does not exist until the visitor interacts with the module.
+Deerwood Lazy Video takes a simpler approach: **don't load the video player until it is requested.**
 
-For the best performance, use a **local custom thumbnail**. In that configuration, the module makes no YouTube request at all before Play is clicked.
+Before the visitor clicks Play, the module displays a thumbnail and lightweight CSS play button. The actual third-party player iframe is created only after interaction.
+
+For maximum control, use a **local custom thumbnail**. This avoids contacting the video provider before Play is clicked. Vimeo uses this local-thumbnail approach by design.
+
+## YouTube
+
+Choose **YouTube** as the Video Provider and paste a supported YouTube URL or 11-character video ID.
+
+Supported inputs include:
+
+- Standard YouTube watch URLs
+- `youtu.be` links
+- Embed URLs
+- YouTube Shorts URLs
+- YouTube live URLs
+- 11-character YouTube video IDs
+
+If no custom thumbnail is selected, the module automatically uses YouTube's maximum-resolution thumbnail. You can instead choose a local image from the WordPress Media Library to avoid the pre-click thumbnail request to YouTube.
+
+YouTube privacy-enhanced playback using `youtube-nocookie.com` is enabled by default.
+
+## Vimeo
+
+Choose **Vimeo** as the Video Provider and paste a Vimeo URL or numeric Vimeo video ID.
+
+Vimeo videos use a **custom/local thumbnail** selected from the WordPress Media Library. The plugin does not fetch a Vimeo thumbnail automatically, which keeps Vimeo out of the initial page load.
+
+When the visitor clicks Play, the local thumbnail is replaced with the Vimeo player iframe.
+
+## Thumbnail loading
+
+The module includes two thumbnail loading modes:
+
+- **Priority / Above Fold** — uses eager loading and high fetch priority for a video visible when the page first opens.
+- **Lazy / Below Fold** — lazy loads thumbnails for videos farther down the page.
+
+Priority is the default.
 
 ## Installation
 
-1. Download or clone this repository.
-2. Place the plugin folder in `wp-content/plugins/`, or install the packaged ZIP through **Plugins → Add New → Upload Plugin**.
-3. Activate **Deerwood Lazy Video Divi Module**.
+1. Download the latest packaged plugin ZIP from the GitHub Releases page.
+2. In WordPress, go to **Plugins → Add New → Upload Plugin**.
+3. Upload and activate **Deerwood Lazy Video for Divi**.
 4. Open a page in the Divi Builder.
 5. Add the **Deerwood Lazy Video** module.
-6. Paste a YouTube URL or video ID.
-7. Optionally choose a custom thumbnail from the WordPress Media Library.
+6. Choose YouTube or Vimeo.
+7. Paste the video URL or ID.
+8. For YouTube, optionally choose a local thumbnail. For Vimeo, choose a custom thumbnail.
+
+The same plugin works with Divi 4 and Divi 5.
+
+## Updates
+
+Deerwood Lazy Video can receive updates through the normal WordPress plugin update interface.
+
+Public releases are distributed through GitHub Releases using the packaged `deerwood-lazy-video-divi.zip` installer.
 
 ## Requirements
 
 - WordPress 6.0+
 - PHP 7.4+
-- Divi 4 / the `ET_Builder_Module` API
+- Divi 4 or Divi 5
 
-## Divi 5
+## Current version
 
-The `main` branch is built specifically for Divi 4. Divi 5 uses a different native module API, so Divi 5 support should be provided as a dedicated build rather than relying on legacy compatibility mode.
+**1.4.0**
 
-## Version
+### 1.4.0
 
-**1.1.1**
+- Added Vimeo as a Video Provider in Divi 4 and native Divi 5.
+- Added support for Vimeo URLs and numeric Vimeo video IDs.
+- Vimeo remains click-to-load and uses a custom/local thumbnail.
+- Generalized the video input to **Video URL or ID**.
+- Existing modules continue to use YouTube by default for backward compatibility.
 
 ## Author
 
 [Deerwood Media](https://deerwoodmedia.com/)
+
+## License
+
+GPL-2.0-or-later
