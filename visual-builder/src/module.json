@@ -47,7 +47,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "mainContent",
             "priority": 10,
             "render": true,
             "attrName": "youtubeUrl.innerContent",
@@ -59,7 +58,8 @@
             "component": {
               "type": "field",
               "name": "divi/text"
-            }
+            },
+            "groupName": "mainContent"
           }
         }
       }
@@ -70,7 +70,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "mainContent",
             "priority": 20,
             "render": true,
             "attrName": "thumbnail.innerContent",
@@ -79,7 +78,8 @@
             "component": {
               "type": "field",
               "name": "divi/upload"
-            }
+            },
+            "groupName": "mainContent"
           }
         }
       }
@@ -97,7 +97,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "mainContent",
             "priority": 30,
             "render": true,
             "attrName": "accessibleLabel.innerContent",
@@ -105,7 +104,8 @@
             "component": {
               "type": "field",
               "name": "divi/text"
-            }
+            },
+            "groupName": "mainContent"
           }
         }
       }
@@ -123,7 +123,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "mainContent",
             "priority": 40,
             "render": true,
             "attrName": "privacyMode.innerContent",
@@ -131,7 +130,8 @@
             "component": {
               "type": "field",
               "name": "divi/toggle"
-            }
+            },
+            "groupName": "mainContent"
           }
         }
       }
@@ -149,7 +149,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "mainContent",
             "priority": 50,
             "render": true,
             "attrName": "autoplay.innerContent",
@@ -157,7 +156,8 @@
             "component": {
               "type": "field",
               "name": "divi/toggle"
-            }
+            },
+            "groupName": "mainContent"
           }
         }
       }
@@ -175,7 +175,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "mainContent",
             "priority": 60,
             "render": true,
             "attrName": "aspectRatio.innerContent",
@@ -203,7 +202,8 @@
                   }
                 }
               }
-            }
+            },
+            "groupName": "mainContent"
           }
         }
       }
@@ -221,7 +221,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "designPlayButton",
             "priority": 10,
             "render": true,
             "attrName": "playButtonColor.innerContent",
@@ -229,7 +228,8 @@
             "component": {
               "type": "field",
               "name": "divi/color-picker"
-            }
+            },
+            "groupName": "designPlayButton"
           }
         }
       }
@@ -247,7 +247,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "designPlayButton",
             "priority": 20,
             "render": true,
             "attrName": "playIconColor.innerContent",
@@ -255,7 +254,8 @@
             "component": {
               "type": "field",
               "name": "divi/color-picker"
-            }
+            },
+            "groupName": "designPlayButton"
           }
         }
       }
@@ -273,7 +273,6 @@
         "innerContent": {
           "groupType": "group-item",
           "item": {
-            "groupSlug": "designPlayButton",
             "priority": 30,
             "render": true,
             "attrName": "playButtonSize.innerContent",
@@ -289,7 +288,8 @@
                   "px"
                 ]
               }
-            }
+            },
+            "groupName": "designPlayButton"
           }
         }
       }
