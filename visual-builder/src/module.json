@@ -9,25 +9,309 @@
     "module": {
       "type": "object",
       "selector": "{{selector}}",
-      "default": {"meta":{"adminLabel":{"desktop":{"value":"Deerwood Lazy Video"}}}},
-      "settings": {"meta":{"adminLabel":{}},"decoration":{"layout":{},"sizing":{},"spacing":{},"border":{},"boxShadow":{},"filters":{},"transform":{},"animation":{},"overflow":{},"disabledOn":{},"transition":{},"position":{},"zIndex":{},"scroll":{},"sticky":{}}}
+      "default": {
+        "meta": {
+          "adminLabel": {
+            "desktop": {
+              "value": "Deerwood Lazy Video"
+            }
+          }
+        }
+      },
+      "settings": {
+        "meta": {
+          "adminLabel": {}
+        },
+        "decoration": {
+          "layout": {},
+          "sizing": {},
+          "spacing": {},
+          "border": {},
+          "boxShadow": {},
+          "filters": {},
+          "transform": {},
+          "animation": {},
+          "overflow": {},
+          "disabledOn": {},
+          "transition": {},
+          "position": {},
+          "zIndex": {},
+          "scroll": {},
+          "sticky": {}
+        }
+      }
     },
-    "youtubeUrl": {"type":"object","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"mainContent","priority":10,"render":true,"attrName":"youtubeUrl.innerContent","label":"YouTube URL or Video ID","description":"Paste a YouTube URL or 11-character video ID.","features":{"dynamicContent":false},"component":{"type":"field","name":"divi/text"}}}}},
-    "thumbnail": {"type":"object","settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"mainContent","priority":20,"render":true,"attrName":"thumbnail.innerContent","label":"Custom Thumbnail","description":"Optional. Use a local image for zero YouTube requests before play.","component":{"type":"field","name":"divi/upload"}}}}},
-    "accessibleLabel": {"type":"object","default":{"innerContent":{"desktop":{"value":"Play video"}}},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"mainContent","priority":30,"render":true,"attrName":"accessibleLabel.innerContent","label":"Play Button Label","component":{"type":"field","name":"divi/text"}}}}},
-    "privacyMode": {"type":"object","default":{"innerContent":{"desktop":{"value":"on"}}},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"mainContent","priority":40,"render":true,"attrName":"privacyMode.innerContent","label":"Privacy-Enhanced Mode","component":{"type":"field","name":"divi/toggle"}}}}},
-    "autoplay": {"type":"object","default":{"innerContent":{"desktop":{"value":"on"}}},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"mainContent","priority":50,"render":true,"attrName":"autoplay.innerContent","label":"Autoplay After Click","component":{"type":"field","name":"divi/toggle"}}}}},
-    "aspectRatio": {"type":"object","default":{"innerContent":{"desktop":{"value":"16-9"}}},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"mainContent","priority":60,"render":true,"attrName":"aspectRatio.innerContent","label":"Aspect Ratio","component":{"type":"field","name":"divi/select","props":{"options":{"16-9":{"label":"16:9","value":"16-9"},"4-3":{"label":"4:3","value":"4-3"},"1-1":{"label":"1:1","value":"1-1"},"9-16":{"label":"9:16","value":"9-16"}}}}}}}},
-    "playButtonColor": {"type":"object","default":{"innerContent":{"desktop":{"value":"#ff0000"}}},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designPlayButton","priority":10,"render":true,"attrName":"playButtonColor.innerContent","label":"Play Button Color","component":{"type":"field","name":"divi/color-picker"}}}}},
-    "playIconColor": {"type":"object","default":{"innerContent":{"desktop":{"value":"#ffffff"}}},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designPlayButton","priority":20,"render":true,"attrName":"playIconColor.innerContent","label":"Play Icon Color","component":{"type":"field","name":"divi/color-picker"}}}}},
-    "playButtonSize": {"type":"object","default":{"innerContent":{"desktop":{"value":"68px"}}},"settings":{"innerContent":{"groupType":"group-item","item":{"groupSlug":"designPlayButton","priority":30,"render":true,"attrName":"playButtonSize.innerContent","label":"Play Button Size","component":{"type":"field","name":"divi/range","props":{"min":40,"max":120,"step":1,"allowedUnits":["px"]}}}}}}
+    "youtubeUrl": {
+      "type": "object",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "mainContent",
+            "priority": 10,
+            "render": true,
+            "attrName": "youtubeUrl.innerContent",
+            "label": "YouTube URL or Video ID",
+            "description": "Paste a YouTube URL or 11-character video ID.",
+            "features": {
+              "dynamicContent": false
+            },
+            "component": {
+              "type": "field",
+              "name": "divi/text"
+            }
+          }
+        }
+      }
+    },
+    "thumbnail": {
+      "type": "object",
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "mainContent",
+            "priority": 20,
+            "render": true,
+            "attrName": "thumbnail.innerContent",
+            "label": "Custom Thumbnail",
+            "description": "Optional. Use a local image for zero YouTube requests before play.",
+            "component": {
+              "type": "field",
+              "name": "divi/upload"
+            }
+          }
+        }
+      }
+    },
+    "accessibleLabel": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "Play video"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "mainContent",
+            "priority": 30,
+            "render": true,
+            "attrName": "accessibleLabel.innerContent",
+            "label": "Play Button Label",
+            "component": {
+              "type": "field",
+              "name": "divi/text"
+            }
+          }
+        }
+      }
+    },
+    "privacyMode": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "on"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "mainContent",
+            "priority": 40,
+            "render": true,
+            "attrName": "privacyMode.innerContent",
+            "label": "Privacy-Enhanced Mode",
+            "component": {
+              "type": "field",
+              "name": "divi/toggle"
+            }
+          }
+        }
+      }
+    },
+    "autoplay": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "on"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "mainContent",
+            "priority": 50,
+            "render": true,
+            "attrName": "autoplay.innerContent",
+            "label": "Autoplay After Click",
+            "component": {
+              "type": "field",
+              "name": "divi/toggle"
+            }
+          }
+        }
+      }
+    },
+    "aspectRatio": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "16-9"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "mainContent",
+            "priority": 60,
+            "render": true,
+            "attrName": "aspectRatio.innerContent",
+            "label": "Aspect Ratio",
+            "component": {
+              "type": "field",
+              "name": "divi/select",
+              "props": {
+                "options": {
+                  "16-9": {
+                    "label": "16:9",
+                    "value": "16-9"
+                  },
+                  "4-3": {
+                    "label": "4:3",
+                    "value": "4-3"
+                  },
+                  "1-1": {
+                    "label": "1:1",
+                    "value": "1-1"
+                  },
+                  "9-16": {
+                    "label": "9:16",
+                    "value": "9-16"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "playButtonColor": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "#ff0000"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "designPlayButton",
+            "priority": 10,
+            "render": true,
+            "attrName": "playButtonColor.innerContent",
+            "label": "Play Button Color",
+            "component": {
+              "type": "field",
+              "name": "divi/color-picker"
+            }
+          }
+        }
+      }
+    },
+    "playIconColor": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "#ffffff"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "designPlayButton",
+            "priority": 20,
+            "render": true,
+            "attrName": "playIconColor.innerContent",
+            "label": "Play Icon Color",
+            "component": {
+              "type": "field",
+              "name": "divi/color-picker"
+            }
+          }
+        }
+      }
+    },
+    "playButtonSize": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "68px"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "groupSlug": "designPlayButton",
+            "priority": 30,
+            "render": true,
+            "attrName": "playButtonSize.innerContent",
+            "label": "Play Button Size",
+            "component": {
+              "type": "field",
+              "name": "divi/range",
+              "props": {
+                "min": 40,
+                "max": 120,
+                "step": 1,
+                "allowedUnits": [
+                  "px"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
   },
   "settings": {
     "content": "auto",
     "design": "auto",
     "advanced": "auto",
     "groups": {
-      "designPlayButton": {"panel":"design","priority":10,"groupName":"designPlayButton","component":{"name":"divi/composite","props":{"groupLabel":"Play Button"}}}
+      "designPlayButton": {
+        "panel": "design",
+        "priority": 10,
+        "groupName": "designPlayButton",
+        "component": {
+          "name": "divi/composite",
+          "props": {
+            "groupLabel": "Play Button"
+          }
+        }
+      }
     }
-  }
+  },
+  "d4Shortcode": "dlvd_lazy_video"
 }
