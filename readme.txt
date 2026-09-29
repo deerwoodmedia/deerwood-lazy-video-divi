@@ -17,9 +17,10 @@ One installer supports Divi 4 and native Divi 5 and automatically loads the corr
 * Native Divi 4 and native Divi 5 support.
 * Automatic YouTube thumbnail or local custom thumbnail.
 * Vimeo playback with a custom/local thumbnail, keeping Vimeo unloaded until Play is clicked.
-* Local custom thumbnails make no YouTube request before Play is clicked.
+* Local custom thumbnails can avoid pre-click requests to the video provider entirely.
 * Priority / Above Fold and Lazy / Below Fold thumbnail loading.
-* Privacy-enhanced youtube-nocookie.com playback by default.
+* YouTube privacy-enhanced youtube-nocookie.com playback by default.
+* Vimeo accepts standard Vimeo URLs or numeric video IDs.
 * Autoplay after click.
 * 16:9, 4:3, 1:1 and 9:16 aspect ratios.
 * Play button colour, icon colour and size controls.
@@ -31,7 +32,7 @@ One installer supports Divi 4 and native Divi 5 and automatically loads the corr
 2. Activate Deerwood Lazy Video for Divi.
 3. Add the Deerwood Lazy Video module in Divi Builder.
 4. Choose YouTube or Vimeo and paste the video URL or ID.
-5. Optionally choose a local thumbnail for YouTube; a custom thumbnail is required for Vimeo.
+5. For YouTube, use the automatic thumbnail or choose a local custom thumbnail. For Vimeo, choose a custom thumbnail from the WordPress Media Library.
 
 The same ZIP works on Divi 4 and Divi 5.
 
