@@ -43,11 +43,11 @@ For the best performance, use a **local custom thumbnail**. In that configuratio
 
 ## Divi 5
 
-Version 1.0 is built specifically for Divi 4. Divi 5 uses a different native module API, so Divi 5 support should be provided as a dedicated build rather than relying on legacy compatibility mode.
+The `main` branch is built specifically for Divi 4. Divi 5 uses a different native module API, so Divi 5 support should be provided as a dedicated build rather than relying on legacy compatibility mode.
 
 ## Version
 
-**1.0.0**
+**1.1.1**
 
 ## Author
 
