@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Deerwood Lazy Video for Divi
- * Description: Lightweight click-to-load YouTube module for Divi 4 and Divi 5. Loads the YouTube player only after Play is clicked.
- * Version: 1.3.8
+ * Description: Lightweight click-to-load YouTube and Vimeo module for Divi 4 and Divi 5. Loads the video player only after Play is clicked.
+ * Version: 1.4.0
  * Update URI: https://github.com/deerwoodmedia/deerwood-lazy-video-divi
  * Author: Deerwood Media
  * Author URI: https://deerwoodmedia.com/
@@ -13,7 +13,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'DLVD_VERSION', '1.3.8' );
+define( 'DLVD_VERSION', '1.4.0' );
 define( 'DLVD_FILE', __FILE__ );
 define( 'DLVD_URL', plugin_dir_url( __FILE__ ) );
 define( 'DLVD_PATH', plugin_dir_path( __FILE__ ) );
@@ -141,7 +141,7 @@ function dlvd_plugin_info( $result, $action, $args ) {
         'author' => '<a href="https://deerwoodmedia.com/">Deerwood Media</a>',
         'homepage' => 'https://deerwoodmedia.com/',
         'sections' => array(
-            'description' => 'A lightweight click-to-load YouTube module for Divi 4 and Divi 5.',
+            'description' => 'A lightweight click-to-load YouTube and Vimeo module for Divi 4 and Divi 5.',
             'changelog' => isset( $release['body'] ) ? wp_kses_post( $release['body'] ) : '',
         ),
         'download_link' => dlvd_update_package( $release ),
