@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Deerwood Lazy Video Divi Module
  * Description: Lightweight click-to-load YouTube video module for Divi. Avoids loading the YouTube iframe until the visitor clicks play.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Deerwood Media
  * Text Domain: deerwood-lazy-video-divi
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'DLVD_VERSION', '1.0.0' );
+define( 'DLVD_VERSION', '1.1.0' );
 define( 'DLVD_FILE', __FILE__ );
 define( 'DLVD_URL', plugin_dir_url( __FILE__ ) );
 define( 'DLVD_PATH', plugin_dir_path( __FILE__ ) );
