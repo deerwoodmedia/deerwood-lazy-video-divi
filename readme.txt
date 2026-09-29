@@ -3,7 +3,7 @@ Contributors: deerwoodmedia
 Tags: divi, youtube, performance, lazy load, video
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ The same ZIP works on Divi 4 and Divi 5.
 Version 1.3.1 and later can check the public GitHub repository for new releases. Each GitHub release must include an asset named exactly deerwood-lazy-video-divi.zip. When a newer release is available, WordPress displays the normal plugin update notification and Update Now action.
 
 == Changelog ==
+
+= 1.3.2 =
+* Improved GitHub release automation so the packaged plugin ZIP is attached to existing or newly created releases.
 
 = 1.3.1 =
 * Added built-in update checks using public GitHub Releases.
