@@ -1,21 +1,22 @@
 === Deerwood Lazy Video for Divi ===
 Contributors: deerwoodmedia
-Tags: divi, youtube, performance, lazy load, video
+Tags: divi, youtube, vimeo, performance, lazy load, video
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.3.8
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A free lightweight YouTube module for Divi 4 and Divi 5. The YouTube player loads only after the visitor clicks Play.
+A free lightweight YouTube and Vimeo module for Divi 4 and Divi 5. The video player loads only after the visitor clicks Play.
 
 == Description ==
 
 One installer supports Divi 4 and native Divi 5 and automatically loads the correct implementation.
 
-* Click-to-load YouTube facade.
+* Click-to-load YouTube and Vimeo facade.
 * Native Divi 4 and native Divi 5 support.
 * Automatic YouTube thumbnail or local custom thumbnail.
+* Vimeo playback with a custom/local thumbnail, keeping Vimeo unloaded until Play is clicked.
 * Local custom thumbnails make no YouTube request before Play is clicked.
 * Priority / Above Fold and Lazy / Below Fold thumbnail loading.
 * Privacy-enhanced youtube-nocookie.com playback by default.
@@ -29,8 +30,8 @@ One installer supports Divi 4 and native Divi 5 and automatically loads the corr
 1. Upload the plugin ZIP in Plugins > Add New > Upload Plugin.
 2. Activate Deerwood Lazy Video for Divi.
 3. Add the Deerwood Lazy Video module in Divi Builder.
-4. Paste a YouTube URL or video ID.
-5. Optionally choose a local thumbnail.
+4. Choose YouTube or Vimeo and paste the video URL or ID.
+5. Optionally choose a local thumbnail for YouTube; a custom thumbnail is required for Vimeo.
 
 The same ZIP works on Divi 4 and Divi 5.
 
@@ -39,6 +40,13 @@ The same ZIP works on Divi 4 and Divi 5.
 Version 1.3.1 and later can check the public GitHub repository for new releases. Each GitHub release must include an asset named exactly deerwood-lazy-video-divi.zip. When a newer release is available, WordPress displays the normal plugin update notification and Update Now action.
 
 == Changelog ==
+
+= 1.4.0 =
+* Added Vimeo as a Video Provider in Divi 4 and native Divi 5.
+* Vimeo accepts a Vimeo URL or numeric video ID.
+* Vimeo playback remains click-to-load and uses a custom/local thumbnail so Vimeo is not requested before Play.
+* Renamed the video input to Video URL or ID while preserving existing YouTube module data.
+* YouTube remains the default provider for backward compatibility.
 
 = 1.3.8 =
 * Test release for WordPress native Update URI update detection.
