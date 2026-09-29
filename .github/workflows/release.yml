@@ -1,0 +1,31 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build plugin ZIP
+        run: |
+          mkdir -p build/deerwood-lazy-video-divi
+          rsync -av --exclude='.git*' --exclude='build' --exclude='README.md' ./ build/deerwood-lazy-video-divi/
+          cd build
+          zip -r deerwood-lazy-video-divi.zip deerwood-lazy-video-divi
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            build/deerwood-lazy-video-divi.zip \
+            --title "Deerwood Lazy Video for Divi ${{ github.ref_name }}" \
+            --generate-notes
