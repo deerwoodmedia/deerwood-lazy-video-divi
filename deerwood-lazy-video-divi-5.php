@@ -2,12 +2,12 @@
 /**
  * Plugin Name: Deerwood Lazy Video Divi 5 Module
  * Description: Native Divi 5 click-to-load YouTube module. Loads the YouTube iframe only after Play is clicked.
- * Version: 1.1.1
+ * Version: 1.2.0
  * Author: Deerwood Media
  * Requires PHP: 7.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
-define( 'DLVD5_VERSION', '1.1.1' );
+define( 'DLVD5_VERSION', '1.2.0' );
 define( 'DLVD5_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DLVD5_URL', plugin_dir_url( __FILE__ ) );
 require_once DLVD5_PATH . 'server/index.php';
