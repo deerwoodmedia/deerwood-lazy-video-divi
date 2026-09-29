@@ -42,6 +42,17 @@ class Deerwood_Lazy_Video_Module extends ET_Builder_Module {
                 'description'        => esc_html__( 'Optional. If empty, the module uses YouTube maxresdefault.jpg. A custom local WebP/JPEG is fastest and makes no YouTube request before play.', 'deerwood-lazy-video-divi' ),
                 'toggle_slug'        => 'main_content',
             ),
+            'thumbnail_loading' => array(
+                'label'           => esc_html__( 'Thumbnail Loading', 'deerwood-lazy-video-divi' ),
+                'type'            => 'select',
+                'options'         => array(
+                    'priority' => esc_html__( 'Priority / Above Fold', 'deerwood-lazy-video-divi' ),
+                    'lazy'     => esc_html__( 'Lazy / Below Fold', 'deerwood-lazy-video-divi' ),
+                ),
+                'default'         => 'priority',
+                'description'     => esc_html__( 'Use Priority for videos visible when the page opens. Use Lazy for videos farther down the page.', 'deerwood-lazy-video-divi' ),
+                'toggle_slug'     => 'main_content',
+            ),
             'accessible_label' => array(
                 'label'       => esc_html__( 'Play Button Label', 'deerwood-lazy-video-divi' ),
                 'type'        => 'text',
@@ -124,6 +135,8 @@ class Deerwood_Lazy_Video_Module extends ET_Builder_Module {
         wp_enqueue_script( 'dlvd-script' );
 
         $thumb = ! empty( $this->props['thumbnail'] ) ? esc_url( $this->props['thumbnail'] ) : 'https://i.ytimg.com/vi/' . rawurlencode( $id ) . '/maxresdefault.jpg';
+        $thumbnail_loading = ( isset( $this->props['thumbnail_loading'] ) && 'lazy' === $this->props['thumbnail_loading'] ) ? 'lazy' : 'priority';
+        $loading_attr = ( 'lazy' === $thumbnail_loading ) ? ' loading="lazy"' : ' loading="eager" fetchpriority="high"';
         $label = ! empty( $this->props['accessible_label'] ) ? $this->props['accessible_label'] : esc_html__( 'Play video', 'deerwood-lazy-video-divi' );
         $privacy = ( isset( $this->props['privacy_mode'] ) && 'off' === $this->props['privacy_mode'] ) ? 'www.youtube.com' : 'www.youtube-nocookie.com';
         $autoplay = ( isset( $this->props['autoplay'] ) && 'off' === $this->props['autoplay'] ) ? '0' : '1';
@@ -135,8 +148,8 @@ class Deerwood_Lazy_Video_Module extends ET_Builder_Module {
         $style = sprintf( '--dlvd-button:%s;--dlvd-icon:%s;--dlvd-size:%s;', esc_attr( $button_color ), esc_attr( $icon_color ), esc_attr( $button_size ) );
 
         return sprintf(
-            '<div class="dlvd-wrap dlvd-ratio-%1$s" data-video-id="%2$s" data-host="%3$s" data-autoplay="%4$s" style="%5$s"><img class="dlvd-thumb" src="%6$s" alt="" loading="lazy" decoding="async"><button class="dlvd-play" type="button" aria-label="%7$s"><span aria-hidden="true"></span></button><noscript><a href="https://www.youtube.com/watch?v=%2$s">%7$s</a></noscript></div>',
-            esc_attr( $ratio ), esc_attr( $id ), esc_attr( $privacy ), esc_attr( $autoplay ), $style, $thumb, esc_attr( $label )
+            '<div class="dlvd-wrap dlvd-ratio-%1$s" data-video-id="%2$s" data-host="%3$s" data-autoplay="%4$s" style="%5$s"><img class="dlvd-thumb" src="%6$s" alt=""%8$s decoding="async"><button class="dlvd-play" type="button" aria-label="%7$s"><span aria-hidden="true"></span></button><noscript><a href="https://www.youtube.com/watch?v=%2$s">%7$s</a></noscript></div>',
+            esc_attr( $ratio ), esc_attr( $id ), esc_attr( $privacy ), esc_attr( $autoplay ), $style, $thumb, esc_attr( $label ), $loading_attr
         );
     }
 }
