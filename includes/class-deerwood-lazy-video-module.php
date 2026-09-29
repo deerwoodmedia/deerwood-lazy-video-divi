@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 class Deerwood_Lazy_Video_Module extends ET_Builder_Module {
     public $slug       = 'dlvd_lazy_video';
-    public $vb_support = 'partial';
+    public $vb_support = 'on';
 
     public function init() {
         $this->name = esc_html__( 'Deerwood Lazy Video', 'deerwood-lazy-video-divi' );
