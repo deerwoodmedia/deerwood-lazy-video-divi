@@ -34,6 +34,8 @@ class LazyVideoModule implements DependencyInterface {
         $thumb = self::value( $attrs, 'thumbnail' );
         if ( is_array( $thumb ) ) $thumb = $thumb['src'] ?? '';
         if ( ! $thumb ) $thumb = 'https://i.ytimg.com/vi/' . rawurlencode( $id ) . '/maxresdefault.jpg';
+        $thumbnail_loading = self::value( $attrs, 'thumbnailLoading', 'priority' ) === 'lazy' ? 'lazy' : 'priority';
+        $loading_attr = ( 'lazy' === $thumbnail_loading ) ? ' loading="lazy"' : ' loading="eager" fetchpriority="high"';
         $label = self::value( $attrs, 'accessibleLabel', 'Play video' ) ?: 'Play video';
         $privacy = self::value( $attrs, 'privacyMode', 'on' ) !== 'off';
         $autoplay = self::value( $attrs, 'autoplay', 'on' ) !== 'off';
@@ -42,8 +44,8 @@ class LazyVideoModule implements DependencyInterface {
         $icon = self::value( $attrs, 'playIconColor', '#ffffff' ) ?: '#ffffff';
         $size = self::value( $attrs, 'playButtonSize', '68px' ) ?: '68px';
         $html = sprintf(
-            '<div class="dlvd-wrap dlvd-ratio-%1$s" data-video-id="%2$s" data-host="%3$s" data-autoplay="%4$s" style="--dlvd-button:%5$s;--dlvd-icon:%6$s;--dlvd-size:%7$s"><img class="dlvd-thumb" src="%8$s" alt="" loading="lazy" decoding="async"><button class="dlvd-play" type="button" aria-label="%9$s"><span aria-hidden="true"></span></button></div>',
-            esc_attr( $ratio ), esc_attr( $id ), $privacy ? 'www.youtube-nocookie.com' : 'www.youtube.com', $autoplay ? '1' : '0', esc_attr( $button ), esc_attr( $icon ), esc_attr( $size ), esc_url( $thumb ), esc_attr( $label )
+            '<div class="dlvd-wrap dlvd-ratio-%1$s" data-video-id="%2$s" data-host="%3$s" data-autoplay="%4$s" style="--dlvd-button:%5$s;--dlvd-icon:%6$s;--dlvd-size:%7$s"><img class="dlvd-thumb" src="%8$s" alt=""%10$s decoding="async"><button class="dlvd-play" type="button" aria-label="%9$s"><span aria-hidden="true"></span></button></div>',
+            esc_attr( $ratio ), esc_attr( $id ), $privacy ? 'www.youtube-nocookie.com' : 'www.youtube.com', $autoplay ? '1' : '0', esc_attr( $button ), esc_attr( $icon ), esc_attr( $size ), esc_url( $thumb ), esc_attr( $label ), $loading_attr
         );
         return Module::render( [
             'orderIndex' => $block->parsed_block['orderIndex'],
