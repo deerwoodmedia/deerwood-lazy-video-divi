@@ -84,6 +84,45 @@
         }
       }
     },
+    "thumbnailLoading": {
+      "type": "object",
+      "default": {
+        "innerContent": {
+          "desktop": {
+            "value": "priority"
+          }
+        }
+      },
+      "settings": {
+        "innerContent": {
+          "groupType": "group-item",
+          "item": {
+            "priority": 25,
+            "render": true,
+            "attrName": "thumbnailLoading.innerContent",
+            "label": "Thumbnail Loading",
+            "description": "Use Priority for videos visible when the page opens. Use Lazy for videos farther down the page.",
+            "component": {
+              "type": "field",
+              "name": "divi/select",
+              "props": {
+                "options": {
+                  "priority": {
+                    "label": "Priority / Above Fold",
+                    "value": "priority"
+                  },
+                  "lazy": {
+                    "label": "Lazy / Below Fold",
+                    "value": "lazy"
+                  }
+                }
+              }
+            },
+            "groupName": "mainContent"
+          }
+        }
+      }
+    },
     "accessibleLabel": {
       "type": "object",
       "default": {
